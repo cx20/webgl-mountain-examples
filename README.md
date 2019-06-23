@@ -27,3 +27,8 @@ WebGL Mountain Example
 ### 桜島
 
 [![桜島の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/tDAV5.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/tDAV5/)
+
+### 福島県と三県境周辺
+
+[![福島県と三県境周辺の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/2oVv1.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/2oVv1/)
+
