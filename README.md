@@ -39,3 +39,7 @@ WebGL Mountain Example
 ### 草津の本白根山付近
 
 [![草津の本白根山付近の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/c48E.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/c48E/)
+
+### 蔵王山付近
+
+[![蔵王山付近の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/2rwl.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/2rwl/)
