@@ -82,7 +82,7 @@ img.onload = function() {
     // GUI
     gui = new dat.GUI();
     let mapSelector = gui.add(window, 'MAP', {
-        "通常地図": "grand_canyon_map_noral.jpg", // grand_canyon_map_normal.jpg
+        "通常地図": "grand_canyon_map_normal.jpg", // grand_canyon_map_normal.jpg
         "空撮写真": "grand_canyon_map_photo.jpg" // grand_canyon_map_photo.jpg
     });
     let mapRotate = gui.add(window, 'ROTATE').name('Rotate');
