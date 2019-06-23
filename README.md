@@ -52,6 +52,12 @@ WebGL Mountain Example
 
 [![霧島連山 硫黄山付近の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/SLj8.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/SLj8/)
 
+<!--
 ### えびの高原から硫黄山方向
 
 [![えびの高原から硫黄山方向の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/k7Nt.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/k7Nt/)
+-->
+
+### スーパーカミオカンデ付近
+
+[![スーパーカミオカンデ付近の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/UDCT.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/UDCT/)
