@@ -15,3 +15,7 @@ WebGL Mountain Example
 ### 箱根周辺
 
 [![箱根周辺の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/ljKt.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/ljKt/)
+
+### 口永良部島
+
+[![口永良部島の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/sk7v.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/sk7v/)
