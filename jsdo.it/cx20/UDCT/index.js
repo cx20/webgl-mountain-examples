@@ -7,13 +7,13 @@ let arrow;
 let clock = new THREE.Clock();
 let width = window.innerWidth - 2;
 let height = window.innerHeight - 2;
-var MAP = "map_002.png"; // 空撮写真
+var MAP = "map_002.jpg"; // 空撮写真
 var SMOKE = false;
 var ROTATE = true;
 var MARKER = true;
 var WIREFRAME = false;
 var TRANSPARENT = true;
-
+let loader = new THREE.TextureLoader();
 
 // heightMap より標高データを取得する
 // 参考：http://danni-three.blogspot.jp/2013/09/threejs-heightmaps.html
@@ -44,8 +44,8 @@ function getHeightData(img) {
 let container;
 let img = new Image();
 img.onload = function() {
-	container = document.createElement( 'div' );
-	document.body.appendChild( container );
+    container = document.createElement( 'div' );
+    document.body.appendChild( container );
 
     scene = new THREE.Scene();
     
@@ -55,20 +55,14 @@ img.onload = function() {
     scene.add(new THREE.AmbientLight(0xffffff));
 
     camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, -100, 100);
+    camera.position.set(0, 100, 100);
 
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
 
     // OrbitControls の準備
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.userPan = false;
-    controls.userPanSpeed = 0.0;
-    controls.maxDistance = 5000.0;
-    controls.maxPolarAngle = Math.PI * 0.495;
-    controls.rotateUp(Math.PI * 0.38);
     controls.autoRotate = ROTATE; //true:自動回転する,false:自動回転しない
-    controls.autoRotateSpeed = -2.0; //自動回転する時の速度
 
     // heightMap より標高データを取得
     let data = getHeightData(img);
@@ -88,7 +82,7 @@ img.onload = function() {
 
     // テクスチャを貼り付け
     let material = new THREE.MeshPhongMaterial({
-        map: THREE.ImageUtils.loadTexture(MAP),
+        map: loader.load(MAP),
         transparent: TRANSPARENT,        // 半透明合成のパラメータ
         blending: THREE.NormalBlending,  // 半透明合成の方法
         opacity: 0.5,                    // 透明度
@@ -114,7 +108,7 @@ img.onload = function() {
     gui.close();
     let mapSelector = gui.add(window, 'MAP', {
         "通常地図": "map_001.png",
-        "空撮写真": "map_002.png"
+        "空撮写真": "map_002.jpg"
     });
     let mapRotate = gui.add(window, 'ROTATE').name('Rotate');
     let mapMarker = gui.add(window, 'MARKER').name('Marker');
@@ -122,7 +116,7 @@ img.onload = function() {
     let mapTransparent = gui.add(window, 'TRANSPARENT').name('Transparent');
     
     mapSelector.onChange(function (value) {
-        plane.material.map = THREE.ImageUtils.loadTexture(value);
+        plane.material.map = loader.load(value);
     });
     
     mapRotate.onChange(function (value) {
