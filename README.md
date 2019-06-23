@@ -43,3 +43,7 @@ WebGL Mountain Example
 ### 蔵王山付近
 
 [![蔵王山付近の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/2rwl.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/2rwl/)
+
+### 新燃岳付近
+
+[![新燃岳付近の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/GhZA.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/GhZA/)
