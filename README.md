@@ -11,3 +11,7 @@ WebGL Mountain Example
 ### 御嶽山
 
 [![御嶽山の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/6GrB.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/6GrB/)
+
+### 箱根周辺
+
+[![箱根周辺の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/ljKt.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/ljKt/)
