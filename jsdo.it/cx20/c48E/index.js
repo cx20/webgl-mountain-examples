@@ -13,6 +13,7 @@ var SMOKE = false;
 var ROTATE = true;
 var WIREFRAME = false;
 let emitter, particleGroup;
+let loader = new THREE.TextureLoader();
 
 // heightMap より標高データを取得する
 // 参考：http://danni-three.blogspot.jp/2013/09/threejs-heightmaps.html
@@ -41,7 +42,6 @@ function getHeightData(img) {
 }
 
 function initParticles() {
-    let loader = new THREE.TextureLoader();
     let texture = loader.load('smokeparticle.png');  // smokeparticle.png
 
     particleGroup = new SPE.Group({
@@ -114,7 +114,7 @@ img.onload = function() {
 
     // テクスチャを貼り付け
     let material = new THREE.MeshPhongMaterial({
-        map: THREE.ImageUtils.loadTexture(MAP)
+        map: loader.load(MAP)
     });
     let plane = new THREE.Mesh(geometry, material);
     
@@ -140,7 +140,7 @@ img.onload = function() {
     let mapWireframe = gui.add(window, 'WIREFRAME').name('Wireframe');
 
     mapSelector.onChange(function (value) {
-        plane.material.map = THREE.ImageUtils.loadTexture(value);
+        plane.material.map = loader.load(value);
     });
     
     mapSmoke.onChange(function (value) {
