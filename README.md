@@ -23,3 +23,7 @@ WebGL Mountain Example
 ### 浅間山
 
 [![浅間山の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/6vyu.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/6vyu/)
+
+### 桜島
+
+[![桜島の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/tDAV5.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/tDAV5/)
