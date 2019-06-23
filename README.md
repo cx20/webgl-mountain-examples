@@ -47,3 +47,7 @@ WebGL Mountain Example
 ### 新燃岳付近
 
 [![新燃岳付近の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/GhZA.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/GhZA/)
+
+### 霧島連山 硫黄山付近
+
+[![霧島連山 硫黄山付近の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/SLj8.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/SLj8/)
