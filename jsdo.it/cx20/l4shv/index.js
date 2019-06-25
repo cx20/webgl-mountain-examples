@@ -1,6 +1,6 @@
-﻿var scene;
-var camera;
-var theta = 0;
+﻿let scene;
+let camera;
+let theta = 0;
 
 function animate() {
     controls.update();
@@ -15,7 +15,7 @@ function render() {
 width = window.innerWidth;
 height = window.innerHeight;
 
-var xhr = new XMLHttpRequest();
+let xhr = new XMLHttpRequest();
 xhr.addEventListener('load', function (evt) {
     scene = new THREE.Scene();
     scene.add(new THREE.AmbientLight(0xffffff));
@@ -25,29 +25,29 @@ xhr.addEventListener('load', function (evt) {
     renderer.setSize(width, height);
 
     // 座標軸表示
-    var axis = new THREE.AxisHelper(100);
+    let axis = new THREE.AxisHelper(100);
     scene.add(axis);
 
 
-    var x1 = 128;
-    var y1 = 128;
-    var x2 = 256;
-    var y2 = 256;
-    var geometry = new THREE.PlaneGeometry(x1, y1, x2 - 1, y2 - 1);
-    var s = (evt.target.response || evt.target.responseText).split("\n");
-    var c = 0;
-    for (var i = 0; i < y2; i++) {
-        var r = s[i].split(",");
-        for (var j in r) {
-            var h = r[j] == 'e' ? 0 : Number(r[j]);
+    let x1 = 128;
+    let y1 = 128;
+    let x2 = 256;
+    let y2 = 256;
+    let geometry = new THREE.PlaneGeometry(x1, y1, x2 - 1, y2 - 1);
+    let s = (evt.target.response || evt.target.responseText).split("\n");
+    let c = 0;
+    for (let i = 0; i < y2; i++) {
+        let r = s[i].split(",");
+        for (let j in r) {
+            let h = r[j] == 'e' ? 0 : Number(r[j]);
             geometry.vertices[c].z = h * 1; //高さの強調度を変える場合は、ここの数値を変更する
             c++;
         }
     }
-    var material = new THREE.MeshPhongMaterial({
+    let material = new THREE.MeshPhongMaterial({
         map: THREE.ImageUtils.loadTexture('texture.png')
     });
-    var plane = new THREE.Mesh(geometry, material);
+    let plane = new THREE.Mesh(geometry, material);
     scene.add(plane);
 
     material = new THREE.MeshBasicMaterial({

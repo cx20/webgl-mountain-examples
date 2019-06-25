@@ -1,7 +1,7 @@
-﻿var scene;
-var camera;
-var controls;
-var theta = 0;
+﻿let scene;
+let camera;
+let controls;
+let theta = 0;
 
 function animate() {
     requestAnimationFrame( animate );
@@ -11,12 +11,6 @@ function animate() {
 
 function update()
 {
-/*
-    camera.lookAt(scene.position);
-    camera.position.x = 100 * Math.sin(theta * Math.PI / 180);
-    camera.position.y = 100 * Math.cos(60    * Math.PI / 180);
-    camera.position.z = 100 * Math.cos(theta * Math.PI / 180);
-*/
     theta += 0.1;
 
 	controls.update();
@@ -29,49 +23,39 @@ function render() {
 width = window.innerWidth;
 height = window.innerHeight;
 
-var xhr = new XMLHttpRequest();
+let xhr = new XMLHttpRequest();
 xhr.addEventListener('load', function (evt) {
     scene = new THREE.Scene();
     scene.add(new THREE.AmbientLight(0xffffff));
     camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, -100, 100);
+    camera.position.set(0, 100, 150);
     
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
 
     controls = new THREE.OrbitControls( camera, renderer.domElement );
-    controls.userPan = false;
-    controls.userPanSpeed = 0.0;
-    controls.maxDistance = 5000.0;
-    controls.maxPolarAngle = Math.PI * 0.495;
-    controls.rotateUp(Math.PI * 0.38); 
     controls.autoRotate = true;     //true:自動回転する,false:自動回転しない
     controls.autoRotateSpeed = -2.0;    //自動回転する時の速度
-/*
-    // 座標軸表示
-    var axis = new THREE.AxisHelper(100);
-    scene.add(axis);
-*/
 
-    var x1 = 128;
-    var y1 = 128;
-    var x2 = 192; // 256;
-    var y2 = 192; // 256;
-    var geometry = new THREE.PlaneGeometry(x1, y1, x2 - 1, y2 - 1);
-    var s = (evt.target.response || evt.target.responseText).split("\n");
-    var c = 0;
-    for (var i = 0; i < y2; i++) {
-        var r = s[i].split(",");
-        for (var j in r) {
-            var h = r[j] == 'e' ? 0 : Number(r[j]);
+    let x1 = 128;
+    let y1 = 128;
+    let x2 = 192; // 256;
+    let y2 = 192; // 256;
+    let geometry = new THREE.PlaneGeometry(x1, y1, x2 - 1, y2 - 1);
+    let s = (evt.target.response || evt.target.responseText).split("\n");
+    let c = 0;
+    for (let i = 0; i < y2; i++) {
+        let r = s[i].split(",");
+        for (let j in r) {
+            let h = r[j] == 'e' ? 0 : Number(r[j]);
             geometry.vertices[c].z = h * 1.5; //高さの強調度を変える場合は、ここの数値を変更する
             c++;
         }
     }
-    var material = new THREE.MeshPhongMaterial({
+    let material = new THREE.MeshPhongMaterial({
         map: THREE.ImageUtils.loadTexture('texture.png')
     });
-    var plane = new THREE.Mesh(geometry, material);
+    let plane = new THREE.Mesh(geometry, material);
     plane.rotation.x = Math.PI / -2; // 90度回転（地面を上向きに設定）
     scene.add(plane);
 

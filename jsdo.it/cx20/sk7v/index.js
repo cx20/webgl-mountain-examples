@@ -1,13 +1,13 @@
-﻿var gui;
-var scene;
-var camera;
-var renderer;
-var controls;
-var engine;
-var showSmoke = false;
-var clock = new THREE.Clock();
-var width = window.innerWidth - 2;
-var height = window.innerHeight - 2;
+﻿let gui;
+let scene;
+let camera;
+let renderer;
+let controls;
+let engine;
+let showSmoke = false;
+let clock = new THREE.Clock();
+let width = window.innerWidth - 2;
+let height = window.innerHeight - 2;
 var MAP = "map_002.jpg"; // 空撮写真
 var SMOKE = false;
 var ROTATE = true;
@@ -45,30 +45,30 @@ Examples =
 // heightMap より標高データを取得する
 // 参考：http://danni-three.blogspot.jp/2013/09/threejs-heightmaps.html
 function getHeightData(img) {
-    var canvas = document.createElement("canvas");
+    let canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
-    var context = canvas.getContext("2d");
+    let context = canvas.getContext("2d");
 
-    var size = img.width * img.height;
-    var data = new Float32Array(size);
+    let size = img.width * img.height;
+    let data = new Float32Array(size);
 
     context.drawImage(img, 0, 0);
 
-    var imgd = context.getImageData(0, 0, img.width, img.height);
-    var pix = imgd.data;
+    let imgd = context.getImageData(0, 0, img.width, img.height);
+    let pix = imgd.data;
 
-    var j = 0;
-    for (var i = 0; i < pix.length; i += 4) {
-        var k = 1.5; // 起伏の強調度
-        var height = (pix[i] + pix[i + 1] + pix[i + 2])/3 * 1/16 * k;
+    let j = 0;
+    for (let i = 0; i < pix.length; i += 4) {
+        let k = 1.5; // 起伏の強調度
+        let height = (pix[i] + pix[i + 1] + pix[i + 2])/3 * 1/16 * k;
         data[j++] = height;
     }
 
     return data;
 }
 
-var img = new Image();
+let img = new Image();
 img.onload = function() {
     scene = new THREE.Scene();
     scene.add(new THREE.AmbientLight(0xffffff));
@@ -90,23 +90,23 @@ img.onload = function() {
     controls.autoRotateSpeed = -2.0; //自動回転する時の速度
 
     // heightMap より標高データを取得
-    var data = getHeightData(img);
+    let data = getHeightData(img);
 
     // 標高データを元に地形を生成
-    var x1 = 128;
-    var y1 = 128;
-    var x2 = 256;
-    var y2 = 256;
-    var geometry = new THREE.PlaneGeometry(x1, y1, x2 - 1, y2 - 1);
-    for (var i = 0; i < geometry.vertices.length; i++) {
+    let x1 = 128;
+    let y1 = 128;
+    let x2 = 256;
+    let y2 = 256;
+    let geometry = new THREE.PlaneGeometry(x1, y1, x2 - 1, y2 - 1);
+    for (let i = 0; i < geometry.vertices.length; i++) {
         geometry.vertices[i].z = data[i];
     }
 
     // テクスチャを貼り付け
-    var material = new THREE.MeshPhongMaterial({
+    let material = new THREE.MeshPhongMaterial({
         map: THREE.ImageUtils.loadTexture(MAP)
     });
-    var plane = new THREE.Mesh(geometry, material);
+    let plane = new THREE.Mesh(geometry, material);
     
     // 座標回転
     plane.rotation.x = Math.PI / -2; // 90度回転（地面を上向きに設定）
@@ -114,7 +114,7 @@ img.onload = function() {
 
     // GUI
     gui = new dat.GUI();
-    var mapSelector = gui.add(window, 'MAP', {
+    let mapSelector = gui.add(window, 'MAP', {
         "通常地図": "map_001.jpg",
         "空撮写真": "map_002.jpg",
         "空撮写真2": "map_003.jpg",
@@ -123,8 +123,8 @@ img.onload = function() {
         "陰影段彩図": "map_006.jpg", 
         "火山地質図": "map_007.jpg"
     });
-    var mapSmoke = gui.add(window, 'SMOKE').name('Smoke');
-    var mapRotate = gui.add(window, 'ROTATE').name('Rotate');
+    let mapSmoke = gui.add(window, 'SMOKE').name('Smoke');
+    let mapRotate = gui.add(window, 'ROTATE').name('Rotate');
 
     mapSelector.onChange(function (value) {
         plane.material.map = THREE.ImageUtils.loadTexture(value);
@@ -165,7 +165,7 @@ function animate() {
 
 function render() {
     controls.update();
-	var dt = clock.getDelta();
+	let dt = clock.getDelta();
     if ( showSmoke ) {
         engine.update( dt * 0.5 );	
     }
