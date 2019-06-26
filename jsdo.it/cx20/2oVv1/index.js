@@ -43,20 +43,14 @@ img.onload = function() {
     scene.add(new THREE.AmbientLight(0xffffff));
 
     camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.set(0, -100, 100);
+    camera.position.set(0, 75, 100);
 
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
 
     // OrbitControls の準備
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.userPan = false;
-    controls.userPanSpeed = 0.0;
-    controls.maxDistance = 5000.0;
-    controls.maxPolarAngle = Math.PI * 0.495;
-    controls.rotateUp(Math.PI * 0.38);
     controls.autoRotate = ROTATE; //true:自動回転する,false:自動回転しない
-    controls.autoRotateSpeed = -2.0; //自動回転する時の速度
 
     // heightMap より標高データを取得
     let data = getHeightData(img);
