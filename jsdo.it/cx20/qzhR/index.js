@@ -70,8 +70,10 @@ img.onload = function() {
     }
 
     // テクスチャを貼り付け
+    let loader = new THREE.TextureLoader();
+    let texture = loader.load(MAP);
     let material = new THREE.MeshPhongMaterial({
-        map: THREE.ImageUtils.loadTexture(MAP),
+        map: texture
     });
     let plane = new THREE.Mesh(geometry, material);
     
@@ -88,7 +90,8 @@ img.onload = function() {
     let mapRotate = gui.add(window, 'ROTATE').name('Rotate');
 
     mapSelector.onChange(function (value) {
-        plane.material.map = THREE.ImageUtils.loadTexture(value);
+        texture = loader.load(value);
+        plane.material.map = texture;
     });
     
     mapRotate.onChange(function (value) {
