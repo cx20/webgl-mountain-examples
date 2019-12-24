@@ -59,8 +59,10 @@ img.onload = function() {
     }
 
     // テクスチャを貼り付け
+    let loader = new THREE.TextureLoader();
+    let texture = loader.load("texture.jpg");
     let material = new THREE.MeshPhongMaterial({
-        map: THREE.ImageUtils.loadTexture("texture.jpg")
+        map: texture
     });
     let plane = new THREE.Mesh(geometry, material);
     
