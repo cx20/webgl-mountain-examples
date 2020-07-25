@@ -20,6 +20,10 @@ WebGL Mountain Example
 
 [![口永良部島の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/sk7v.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/sk7v/ "口永良部島の3Dデータを使ってみるテスト")
 
+### 西之島
+
+[![西之島の3Dデータを表示してみるテスト](jsdo.it/cx20/assets/screenshot/uZ1S.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/uZ1S/ "西之島の3Dデータを表示してみるテスト")
+
 ### 浅間山
 
 [![浅間山の3Dデータを使ってみるテスト](jsdo.it/cx20/assets/screenshot/6vyu.jpg)](https://cx20.github.io/webgl-mountain-examples/jsdo.it/cx20/6vyu/ "浅間山の3Dデータを使ってみるテスト")
