@@ -148,14 +148,14 @@ var createScene = function () {
     //skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("skybox/skybox", scene);
     
     var extensions = [
-        "./skybox/skybox_px.jpg", 
-        "./skybox/skybox_py.jpg", 
-        "./skybox/skybox_pz.jpg", 
-        "./skybox/skybox_nx.jpg", 
-        "./skybox/skybox_ny.jpg", 
-        "./skybox/skybox_nz.jpg"
+        "px.jpg", 
+        "py.jpg", 
+        "pz.jpg", 
+        "nx.jpg", 
+        "ny.jpg", 
+        "nz.jpg"
     ];
-    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("skybox/skybox", scene, extensions);
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("skybox/skybox_", scene, extensions);
     
     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
     skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
